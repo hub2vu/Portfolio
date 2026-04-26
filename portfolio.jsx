@@ -5,6 +5,7 @@ export default function Portfolio() {
   const [time, setTime] = useState("");
   const sectionRefs = useRef({});
   const profileImage = `${import.meta.env.BASE_URL}profile.png`;
+  const mistLabUrl = "https://mist.sogang.ac.kr/";
 
   useEffect(() => {
     const update = () => {
@@ -54,7 +55,8 @@ export default function Portfolio() {
       status: "Manuscript in preparation",
       title: "PCI RF Data Interpolation using U-Net",
       subtitle: "Sparse Channel Reconstruction for Passive Cavitation Imaging",
-      lab: "Prof. Sooah Bae Lab, Sogang University",
+      lab: "MIST Lab, Sogang University",
+      labHref: mistLabUrl,
       desc:
         "Passive Cavitation Imaging (PCI)을 위한 RF 채널 보간 연구. 64-channel sparse RF observation으로부터 128-channel full RF data를 복원하고, beamforming 이후 영상 품질을 PSNR · SSIM · MSE · contrast · resolution 기준으로 평가한다.",
       role: "Data preprocessing · U-Net implementation · experiment pipeline · beamformed image evaluation · manuscript drafting",
@@ -345,7 +347,7 @@ export default function Portfolio() {
                     <img
                       src={profileImage}
                       alt="Min Kyungho portrait"
-                      className="aspect-[4/5] w-full object-cover object-center grayscale"
+                      className="aspect-[4/5] w-full object-cover object-center"
                     />
                   </div>
                   <figcaption className="mono text-[9px] tracking-[0.2em] opacity-50 mt-2">
@@ -358,13 +360,21 @@ export default function Portfolio() {
               <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-[#1a1a1a] border hairline fade-up d5">
                 {[
                   { k: "Affiliation", v: "Sogang Univ.", sub: "EE × CS, 3rd-year B.S. Candidate" },
-                  { k: "Lab", v: "Bae Lab", sub: "PCI · RF Interpolation" },
+                  { k: "Lab", v: "MIST Lab", sub: "Medical Imaging Systems and Technology", href: mistLabUrl },
                   { k: "Focus", v: "AI Systems", sub: "Signal · Robotics · LLM Agent" },
                   { k: "Status", v: "Year 3", sub: "Research & student societies" },
                 ].map((f, i) => (
                   <div key={i} className="bg-[#FAF9F6] p-5 md:p-6">
                     <div className="mono text-[9px] tracking-[0.2em] opacity-50 mb-3">— {f.k.toUpperCase()}</div>
-                    <div className="display text-2xl md:text-3xl font-medium leading-tight mb-1">{f.v}</div>
+                    <div className="display text-2xl md:text-3xl font-medium leading-tight mb-1">
+                      {f.href ? (
+                        <a href={f.href} target="_blank" rel="noreferrer" className="hover:text-[#0033cc]">
+                          {f.v}
+                        </a>
+                      ) : (
+                        f.v
+                      )}
+                    </div>
                     <div className="mono text-[10px] tracking-wider opacity-60">{f.sub}</div>
                   </div>
                 ))}
@@ -411,7 +421,10 @@ export default function Portfolio() {
                       PCI RF Data Interpolation<br />using U-Net
                     </h3>
                     <p className="mono text-[11px] tracking-wider opacity-60 mb-6">
-                      Prof. Sooah Bae Lab · Sogang University · Manuscript in preparation
+                      <a href={mistLabUrl} target="_blank" rel="noreferrer" className="underline underline-offset-4 hover:text-[#0033cc]">
+                        MIST Lab
+                      </a>{" "}
+                      · Sogang University · Manuscript in preparation
                     </p>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-6 max-w-3xl">
@@ -599,7 +612,16 @@ export default function Portfolio() {
                         <p className="display text-lg md:text-xl italic font-light opacity-70 mb-2">
                           {p.subtitle}
                         </p>
-                        <p className="mono text-[10px] tracking-[0.15em] opacity-50 mb-5">— {p.lab}</p>
+                        <p className="mono text-[10px] tracking-[0.15em] opacity-50 mb-5">
+                          —{" "}
+                          {p.labHref ? (
+                            <a href={p.labHref} target="_blank" rel="noreferrer" className="underline underline-offset-4 hover:text-[#0033cc]">
+                              {p.lab}
+                            </a>
+                          ) : (
+                            p.lab
+                          )}
+                        </p>
 
                         <p className="text-[15px] leading-relaxed mb-5 max-w-3xl">{p.desc}</p>
 
@@ -660,7 +682,7 @@ export default function Portfolio() {
                 {[
                   {
                     h: "Undergraduate Researcher",
-                    s: "Bae Lab · Sogang Univ.",
+                    s: "MIST Lab · Sogang Univ.",
                     body: "PCI RF interpolation, sparse channel reconstruction, experiment pipeline, manuscript drafting.",
                     when: "2025 — Present",
                   },
@@ -734,7 +756,14 @@ export default function Portfolio() {
                 <CVRow label="Research">
                   <CVEntry
                     head="Undergraduate Researcher"
-                    sub="Prof. Sooah Bae Lab · Sogang University"
+                    sub={
+                      <>
+                        <a href={mistLabUrl} target="_blank" rel="noreferrer" className="underline underline-offset-4 hover:text-[#0033cc]">
+                          MIST Lab
+                        </a>{" "}
+                        · Sogang University
+                      </>
+                    }
                     when="2025 — Present"
                     body="PCI RF data interpolation using U-Net · Sparse-to-full RF channel reconstruction · Beamformed image evaluation · Experiment pipeline · Manuscript in preparation."
                   />
