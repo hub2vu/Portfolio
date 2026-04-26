@@ -4,6 +4,7 @@ export default function Portfolio() {
   const [activeSection, setActiveSection] = useState("index");
   const [time, setTime] = useState("");
   const sectionRefs = useRef({});
+  const profileImage = `${import.meta.env.BASE_URL}profile.png`;
 
   useEffect(() => {
     const update = () => {
@@ -79,7 +80,7 @@ export default function Portfolio() {
       status: "Study & implementation",
       title: "Embodied LLM Agent in AI2-THOR",
       subtitle: "Perception–Plan–Act Loop in Simulated Home Environment",
-      lab: "AI@Sogang Robotics Study · 2025.09 — Present",
+      lab: "AI@Sogang · Sogang University Student Society · 2025.09 — Present",
       desc:
         "AI2-THOR / iTHOR 시뮬레이터에서 LLM이 가정용 로봇을 제어하도록 perception → plan → act loop를 구성하고, 간단한 household task 수행 과정을 실험한다. Ollama · OpenAI · Together AI · Hugging Face 등 다중 LLM backend를 추상화한다.",
       role: "Robotics study · simulation testing · agent loop implementation · prompt/action trace analysis",
@@ -92,7 +93,7 @@ export default function Portfolio() {
       status: "Hackathon · 1st Place",
       title: "AI Nutritionist Agent System",
       subtitle: "ReAct-based Tool-Calling Agent for Nutrition Analysis",
-      lab: "Hateslop Hackathon · 2025.12.04",
+      lab: "Hateslop · Sogang University Student Society Hackathon · 2025.12.04",
       desc:
         "자연어 입력을 영양 분석, 식단 추천, 일일/주간 리포트(JSON) 생성까지 연결한 LLM agent system. FatSecret과 Tavily API를 ReAct-style tool-calling loop로 결합했다.",
       role: "Agent architecture · tool integration · ReAct loop design · report pipeline",
@@ -225,7 +226,7 @@ export default function Portfolio() {
             <span className="hidden md:inline opacity-60">— Sogang Univ. EE × CS</span>
           </div>
           <div className="hidden md:flex items-center gap-6 opacity-70">
-            <span>Incheon, KR</span>
+            <span>Seoul, South Korea</span>
             <span>{time}</span>
             <span className="flex items-center gap-1.5">
               <span className="w-1.5 h-1.5 rounded-full bg-[#0033cc] inline-block" style={{ animation: "pulse 2s ease-in-out infinite" }} />
@@ -331,11 +332,26 @@ export default function Portfolio() {
                 <div className="md:col-span-3 mono text-[10px] tracking-[0.2em] opacity-60 pt-2">
                   ¶ STATEMENT
                 </div>
-                <p className="md:col-span-9 display text-xl md:text-2xl leading-snug font-light max-w-2xl">
-                  서강대학교 전자공학·컴퓨터공학 복수전공 3학년 학부생. <span className="signal italic">의료 RF 신호 복원</span>,{" "}
-                  <span className="italic">embodied LLM agents</span>, 그리고{" "}
-                  <span className="italic">LLM 기반 연구 자동화</span>를 동작하는 실험 파이프라인과 소프트웨어 시스템으로 구현한다.
-                </p>
+                <div className="md:col-span-6">
+                  <p className="display text-xl md:text-2xl leading-snug font-light max-w-2xl">
+                    서강대학교에서 전자공학과 컴퓨터공학을 함께 공부하는 3학년 학부생입니다.{" "}
+                    <span className="signal italic whitespace-nowrap">의료 RF 신호 복원</span>,{" "}
+                    <span className="italic">embodied LLM agents</span>, 그리고{" "}
+                    <span className="italic">LLM 기반 연구 자동화</span>를 연구 아이디어에서 실제로 동작하는 실험 파이프라인과 소프트웨어 시스템으로 연결합니다.
+                  </p>
+                </div>
+                <figure className="md:col-span-3 w-full max-w-[220px] md:justify-self-end">
+                  <div className="border hairline bg-white p-2">
+                    <img
+                      src={profileImage}
+                      alt="Min Kyungho portrait"
+                      className="aspect-[4/5] w-full object-cover object-center grayscale"
+                    />
+                  </div>
+                  <figcaption className="mono text-[9px] tracking-[0.2em] opacity-50 mt-2">
+                    MIN KYUNGHO · 2026
+                  </figcaption>
+                </figure>
               </div>
 
               {/* fact grid */}
@@ -344,7 +360,7 @@ export default function Portfolio() {
                   { k: "Affiliation", v: "Sogang Univ.", sub: "EE × CS, 3rd-year B.S. Candidate" },
                   { k: "Lab", v: "Bae Lab", sub: "PCI · RF Interpolation" },
                   { k: "Focus", v: "AI Systems", sub: "Signal · Robotics · LLM Agent" },
-                  { k: "Status", v: "Year 3", sub: "Research & agent societies" },
+                  { k: "Status", v: "Year 3", sub: "Research & student societies" },
                 ].map((f, i) => (
                   <div key={i} className="bg-[#FAF9F6] p-5 md:p-6">
                     <div className="mono text-[9px] tracking-[0.2em] opacity-50 mb-3">— {f.k.toUpperCase()}</div>
@@ -534,20 +550,20 @@ export default function Portfolio() {
                   </div>
                 </div>
                 <div className="bg-[#FAF9F6] p-7 md:p-9">
-                  <div className="mono text-[10px] tracking-[0.2em] opacity-60 mb-3">— ROBOTICS · 2025.09 — PRESENT</div>
+                  <div className="mono text-[10px] tracking-[0.2em] opacity-60 mb-3">— SOGANG STUDENT SOCIETY · 2025.09 — PRESENT</div>
                   <h4 className="display text-2xl md:text-3xl font-medium mb-3">AI@Sogang</h4>
                   <p className="text-[15px] leading-relaxed opacity-80 mb-3">
-                    AI2-THOR 시뮬레이션을 활용한 LLM-based embodied agent 실험. perception → plan → act loop의 failure mode를 정리하고 prompt/action trace를 분석한다.
+                    서강대학교 교내 AI 학회에서 AI2-THOR 시뮬레이션을 활용한 LLM-based embodied agent 실험을 진행한다. perception → plan → act loop의 failure mode를 정리하고 prompt/action trace를 분석한다.
                   </p>
                   <div className="mono text-[10px] tracking-wider opacity-60">
                     Tools — AI2-THOR · iTHOR · Multi-LLM Backends
                   </div>
                 </div>
                 <div className="bg-[#FAF9F6] p-7 md:p-9">
-                  <div className="mono text-[10px] tracking-[0.2em] opacity-60 mb-3">— LLM AGENT SOCIETY · 2025.09 — PRESENT</div>
+                  <div className="mono text-[10px] tracking-[0.2em] opacity-60 mb-3">— SOGANG STUDENT SOCIETY · 2025.09 — PRESENT</div>
                   <h4 className="display text-2xl md:text-3xl font-medium mb-3">Hateslop</h4>
                   <p className="text-[15px] leading-relaxed opacity-80 mb-3">
-                    LLM agent 구조, tool calling, ReAct-style reasoning, RAG/MCP 기반 워크플로우를 학습하고 실제 에이전트 프로젝트로 검증하는 학회 활동.
+                    서강대학교 교내 LLM agent 학회에서 tool calling, ReAct-style reasoning, RAG/MCP 기반 워크플로우를 학습하고 실제 에이전트 프로젝트로 검증한다.
                   </p>
                   <div className="mono text-[10px] tracking-wider opacity-60">
                     Topics — LLM Agents · Tool Use · ReAct · RAG/MCP
@@ -627,7 +643,7 @@ export default function Portfolio() {
           {/* ACTIVITIES / PHILOSOPHY */}
           <section ref={setRef("activities")} id="activities" className="border-b hairline">
             <div className="max-w-[1100px] mx-auto px-6 md:px-12 py-20 md:py-28">
-              <SectionHeader num="03" label="Activities" subtitle="Research groups, agent societies, and selected awards" />
+              <SectionHeader num="03" label="Activities" subtitle="Research groups, student societies, and selected awards" />
 
               <div className="grid grid-cols-1 md:grid-cols-12 gap-8 mb-16">
                 <div className="md:col-span-3 mono text-[10px] tracking-[0.2em] opacity-60 pt-2">¶ ETHOS</div>
@@ -656,14 +672,14 @@ export default function Portfolio() {
                   },
                   {
                     h: "AI@Sogang",
-                    s: "Robotics Study",
-                    body: "AI2-THOR-based embodied LLM agent simulation testing, failure-mode analysis, and study notes.",
+                    s: "Sogang University Student Society · Robotics Study",
+                    body: "Campus AI society work on AI2-THOR-based embodied LLM agent simulation testing, failure-mode analysis, and study notes.",
                     when: "2025.09 — Present",
                   },
                   {
                     h: "Hateslop",
-                    s: "LLM Agent Society",
-                    body: "LLM agent architecture, tool-use workflow, ReAct/RAG/MCP study, and hackathon-based applied agent projects.",
+                    s: "Sogang University Student Society · LLM Agent",
+                    body: "Campus LLM agent society work on agent architecture, tool-use workflow, ReAct/RAG/MCP study, and hackathon-based applied agent projects.",
                     when: "2025.09 — Present",
                   },
                 ].map((a, i) => (
@@ -683,7 +699,7 @@ export default function Portfolio() {
                     <div key={k} className="flex items-center gap-10 px-6">
                       <span>★ HATESLOP HACKATHON · 1ST PLACE · 2025.12</span>
                       <span className="signal">●</span>
-                      <span>HATESLOP LLM AGENT SOCIETY · 2025.09 — PRESENT</span>
+                      <span>HATESLOP · SOGANG STUDENT SOCIETY · 2025.09 — PRESENT</span>
                       <span className="signal">●</span>
                       <span>PCI MANUSCRIPT IN PREPARATION</span>
                       <span className="signal">●</span>
@@ -727,7 +743,7 @@ export default function Portfolio() {
                 <CVRow label="Selected Projects">
                   <CVEntry head="Research Agent" sub="Local MCP-based research workspace" />
                   <CVEntry head="Embodied LLM Agent in AI2-THOR" sub="Perception–Plan–Act loop in simulated home env." />
-                  <CVEntry head="AI Nutritionist Agent System" sub="Hateslop Hackathon · 1st Place · 2025.12" />
+                  <CVEntry head="AI Nutritionist Agent System" sub="Hateslop student society hackathon · 1st Place · 2025.12" />
                   <CVEntry head="A.X Light Novel Generation Pipeline" sub="Korean long-form generation with SKT A.X 7B" />
                 </CVRow>
 
@@ -739,12 +755,12 @@ export default function Portfolio() {
                   />
                   <CVEntry
                     head="AI@Sogang"
-                    sub="Robotics study and AI2-THOR simulation testing"
+                    sub="Sogang University student society · Robotics study and AI2-THOR simulation testing"
                     when="2025.09 — Present"
                   />
                   <CVEntry
                     head="Hateslop"
-                    sub="LLM Agent Society · Tool-use, ReAct/RAG/MCP study, applied agent projects"
+                    sub="Sogang University student society · LLM agent, tool-use, ReAct/RAG/MCP study, applied agent projects"
                     when="2025.09 — Present"
                   />
                 </CVRow>
@@ -777,7 +793,7 @@ export default function Portfolio() {
                   <div className="space-y-3">
                     <ContactLine k="EMAIL" v="hub2vu@sogang.ac.kr" href="mailto:hub2vu@sogang.ac.kr" />
                     <ContactLine k="GITHUB" v="github.com/hub2vu" href="https://github.com/hub2vu" />
-                    <ContactLine k="LOCATION" v="Incheon · Seoul, KR" />
+                    <ContactLine k="LOCATION" v="Seoul, South Korea" />
                   </div>
                 </div>
 
