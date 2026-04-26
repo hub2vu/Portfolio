@@ -119,14 +119,14 @@ export default function Portfolio() {
       tag: "TOOLING",
       tagColor: "blue",
       status: "Maintained",
-      title: "ComfyUI GPT Image Node",
+      title: "ComfyUI-GPT-Image-Node",
       subtitle: "Custom Nodes for GPT Image Generation/Editing",
       lab: "Personal",
       desc:
         "ComfyUI에서 GPT image generation/editing을 호출할 수 있도록 만든 custom node pack. 생성·편집 노드, API 인증 흐름, image/revised_prompt 반환 구조를 구현했다.",
       role: "Custom node development · OpenAI API integration · workflow testing",
       stack: ["Python", "ComfyUI", "OpenAI API"],
-      links: [{ label: "GitHub", href: "https://github.com/hub2vu/Compyui-GPT-img-node" }],
+      links: [{ label: "GitHub", href: "https://github.com/hub2vu/ComfyUI-GPT-Image-Node" }],
     },
   ];
 
@@ -415,7 +415,7 @@ export default function Portfolio() {
                 <div className="md:col-span-12">
                   <div className="border-l-2 border-[#0033cc] pl-6 md:pl-10 py-2 mb-10">
                     <div className="mono text-[10px] tracking-[0.2em] signal mb-3">
-                      LEAD PROJECT · PRINCIPAL CONTRIBUTOR
+                      ONGOING RESEARCH · UNDERGRADUATE CONTRIBUTOR
                     </div>
                     <h3 className="display text-3xl md:text-5xl font-medium leading-[1.05] tracking-normal mb-4">
                       PCI RF Data Interpolation<br />using U-Net
@@ -817,7 +817,7 @@ export default function Portfolio() {
                     혹은 관련 토의를 환영합니다.
                   </p>
                   <p className="text-[15px] opacity-70 leading-relaxed max-w-xl mb-8">
-                    의료 RF 신호 처리, embodied AI, LLM agent system, 연구 자동화에 관심이 있다면 메일로 연락해 주세요.
+                    의료 AI, embodied AI, LLM agent system 관련 연구 협업, 학부연구 기회, 인턴십 문의를 환영합니다.
                   </p>
                   <div className="space-y-3">
                     <ContactLine k="EMAIL" v="hub2vu@sogang.ac.kr" href="mailto:hub2vu@sogang.ac.kr" />
