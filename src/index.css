@@ -2,20 +2,329 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ============================================================
+   THEME TOKENS
+   ============================================================ */
+:root,
+:root[data-theme="dark"] {
+  --bg: #0a0b10;
+  --bg-soft: #0e1017;
+  --surface: #14161f;
+  --surface-2: #1b1e2a;
+  --line: rgba(255, 255, 255, 0.1);
+  --line-strong: rgba(255, 255, 255, 0.2);
+  --text: #edeef3;
+  --text-2: #b7bac6;
+  --text-3: rgba(128, 132, 146, 0.08);
+  --text-muted: #808492;
+  --accent: #5b8cff;
+  --accent-bright: #82a4ff;
+  --accent-2: #45e0d0;
+  --warm: #ffc178;
+  --accent-soft: rgba(91, 140, 255, 0.14);
+  --header-bg: rgba(10, 11, 16, 0.82);
+  --grad: linear-gradient(120deg, var(--accent-2), var(--accent));
+  --shadow: 0 24px 60px -28px rgba(0, 0, 0, 0.8);
+  --grain-opacity: 0.04;
+  color-scheme: dark;
+}
+
+:root[data-theme="light"] {
+  --bg: #fafaf8;
+  --bg-soft: #f1f1ec;
+  --surface: #ffffff;
+  --surface-2: #f5f5f0;
+  --line: rgba(18, 20, 28, 0.12);
+  --line-strong: rgba(18, 20, 28, 0.24);
+  --text: #15171e;
+  --text-2: #474b5b;
+  --text-3: rgba(90, 95, 115, 0.07);
+  --text-muted: #6d7180;
+  --accent: #2b4fe6;
+  --accent-bright: #1d3fd6;
+  --accent-2: #0aa99a;
+  --warm: #b9701a;
+  --accent-soft: rgba(43, 79, 230, 0.1);
+  --header-bg: rgba(250, 250, 248, 0.82);
+  --grad: linear-gradient(120deg, var(--accent-2), var(--accent));
+  --shadow: 0 24px 50px -30px rgba(20, 30, 70, 0.28);
+  --grain-opacity: 0.03;
+  color-scheme: light;
+}
+
+/* ============================================================
+   BASE
+   ============================================================ */
 * {
   box-sizing: border-box;
 }
 
 html {
   scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
   margin: 0;
   min-width: 320px;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Inter", ui-sans-serif, system-ui, sans-serif;
+  font-size: 16px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  transition: background-color 0.45s ease, color 0.45s ease;
 }
 
 button,
 a {
   -webkit-tap-highlight-color: transparent;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+::selection {
+  background: var(--accent);
+  color: #fff;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 11px;
+  height: 11px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--line-strong);
+  border-radius: 99px;
+  border: 3px solid var(--bg);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent);
+}
+
+/* ============================================================
+   TYPE HELPERS
+   ============================================================ */
+.font-display {
+  font-family: "Fraunces", Georgia, serif;
+  font-optical-sizing: auto;
+}
+.font-mono {
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+}
+.font-body {
+  font-family: "Inter", ui-sans-serif, system-ui, sans-serif;
+}
+
+.text-grad {
+  background: var(--grad);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* ============================================================
+   DECORATION
+   ============================================================ */
+.grain::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: var(--grain-opacity);
+  z-index: 1;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+  padding: 3px 11px;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-2);
+  transition: border-color 0.25s ease, color 0.25s ease, background 0.25s ease;
+}
+.pill-accent {
+  color: var(--accent-bright);
+  border-color: var(--accent);
+  background: var(--accent-soft);
+}
+.pill:hover {
+  border-color: var(--accent);
+  color: var(--accent-bright);
+}
+
+.hairline {
+  border-color: var(--line);
+}
+
+/* Card hover lift — reliable box-shadow (Tailwind misreads the shadow
+   token as a color, so drive it from real CSS instead). No transform here:
+   reveal animation uses fill:both and would lock translateY. */
+.card-raise {
+  transition: box-shadow 0.35s ease, border-color 0.25s ease;
+}
+.card-raise:hover {
+  box-shadow: var(--shadow);
+  border-color: var(--accent);
+}
+
+/* Portrait — subtle desaturation in dark mode, full colour on hover.
+   Driven from CSS so it isn't overridden by an inline filter. */
+.portrait {
+  transition: filter 0.6s ease;
+}
+:root[data-theme="dark"] .portrait {
+  filter: grayscale(0.4) contrast(1.02);
+}
+:root[data-theme="dark"] .group:hover .portrait {
+  filter: grayscale(0);
+}
+
+.link-underline {
+  background-image: linear-gradient(var(--accent), var(--accent));
+  background-size: 0% 1.5px;
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  transition: background-size 0.3s ease, color 0.25s ease;
+  padding-bottom: 1px;
+}
+.link-underline:hover {
+  background-size: 100% 1.5px;
+  color: var(--accent-bright);
+}
+
+/* ============================================================
+   ANIMATIONS
+   ============================================================ */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.fade-up {
+  animation: fadeUp 0.85s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+.d1 { animation-delay: 0.05s; }
+.d2 { animation-delay: 0.18s; }
+.d3 { animation-delay: 0.31s; }
+.d4 { animation-delay: 0.44s; }
+.d5 { animation-delay: 0.57s; }
+.d6 { animation-delay: 0.7s; }
+
+@keyframes drawLine {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+.draw-line {
+  stroke-dasharray: 1400;
+  stroke-dashoffset: 1400;
+  animation: drawLine 2.6s ease-out forwards;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.35; transform: scale(0.82); }
+}
+.pulse-dot {
+  animation: pulse 2.4s ease-in-out infinite;
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.marquee-track {
+  animation: marquee 38s linear infinite;
+}
+.marquee-wrap:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+/* Scroll reveal — uses animation (not transition) so it never fights
+   the hover transitions Tailwind puts on the same elements. */
+[data-reveal] {
+  opacity: 0;
+  will-change: opacity, transform;
+}
+[data-reveal].is-visible {
+  animation: revealIn 0.8s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+@keyframes revealIn {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ============================================================
+   REDUCED MOTION
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+  [data-reveal] {
+    opacity: 1;
+    transform: none;
+  }
+  .marquee-track {
+    animation: none;
+  }
+}
+
+/* ============================================================
+   PRINT (CV-friendly)
+   ============================================================ */
+@media print {
+  :root[data-theme="dark"] {
+    --bg: #fff;
+    --surface: #fff;
+    --text: #000;
+    --text-2: #222;
+    --line: #ccc;
+  }
+  .no-print {
+    display: none !important;
+  }
+  body {
+    font-size: 12px;
+  }
 }
