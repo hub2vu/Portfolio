@@ -1,24 +1,19 @@
 # Portfolio — Min Kyungho (민경호)
 
-Personal portfolio site for Min Kyungho — a research-oriented AI engineer
-working on RF signal reconstruction, embodied AI, and LLM agent systems.
+A minimal, information-dense academic homepage / CV for Min Kyungho — a
+research-oriented AI engineer working on RF signal reconstruction, embodied AI,
+and LLM agent systems.
 
-**"Research, reconstructed."** — a single-page, editorial-tech portfolio whose
-visual language is built around the core research theme: turning *sparse signal
-observation* into *full reconstruction*.
+Design goals: **scannable at a glance, clear structure, no unnecessary
+decoration** — in the spirit of a classic academic homepage.
 
-## Features
+## Characteristics
 
-- **Dark / light themes** with a toggle (respects `prefers-color-scheme`,
-  persisted to `localStorage`, no flash on load).
-- **Animated signal hero** — a live `<canvas>` waveform that visualises the
-  sparse → reconstructed motif.
-- High-contrast, readable typography: **Fraunces** (display) · **Inter** (body)
-  · **JetBrains Mono** (labels).
-- Scroll progress, scroll-reveal animations, a cursor glow, and a section
-  scroll-spy navigation.
-- Fully responsive, accessible (reduced-motion aware, focus styles), and
-  print-friendly for the CV section.
+- Single page with a sticky section nav (Research · Projects · Activities ·
+  Education · Skills · Contact).
+- System font stack — no web fonts, fast first paint.
+- Compact typography, high information density, plain white background.
+- Responsive and print-friendly (the page prints cleanly as a CV).
 
 ## Local Development
 
