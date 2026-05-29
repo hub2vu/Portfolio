@@ -9,6 +9,7 @@
   --link: #14489c;
   --line: #d8d8d8;
   --line-soft: #e7e7e7;
+  --band: #d6d6d6;
   --bg: #ffffff;
   --content: 880px;
 }
@@ -141,14 +142,12 @@ a:hover {
   scroll-margin-top: 52px;
 }
 .section > h2 {
-  font-size: 13px;
+  font-size: 15px;
   font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: #111;
-  margin: 0 0 12px;
-  padding-bottom: 5px;
-  border-bottom: 1px solid var(--line);
+  color: #1a1a1a;
+  background: var(--band);
+  margin: 0 -20px 14px;
+  padding: 6px 20px;
 }
 
 /* ---------- item rows (research / projects) ---------- */
@@ -262,5 +261,10 @@ a:hover {
   }
   body {
     font-size: 11pt;
+  }
+  .section > h2 {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+    border-bottom: 1px solid #999;
   }
 }
