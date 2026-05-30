@@ -103,7 +103,7 @@ const ACTIVITIES = [
 const SKILLS = [
   { label: "Languages", items: "Python · C · JavaScript · MATLAB" },
   { label: "ML / Systems", items: "PyTorch · FastAPI · React · Docker · MCP · RAG" },
-  { label: "Domain", items: "RF Beamforming · k-Wave · CUDA · LLM Agents · Tool Calling" },
+  { label: "Domain", items: "RF Beamforming · CUDA · LLM Agents · Tool Calling" },
 ];
 
 export default function Portfolio() {
@@ -175,7 +175,7 @@ export default function Portfolio() {
               데이터 전처리 · U-Net 구현 · 실험 파이프라인 구성 · 정량/정성 결과 분석 ·
               논문 초안 작성
             </p>
-            <p className="tags">PyTorch · MATLAB · CUDA · k-Wave · NumPy · Beamforming</p>
+            <p className="tags">PyTorch · MATLAB · CUDA · NumPy · Beamforming</p>
           </div>
         </section>
 
