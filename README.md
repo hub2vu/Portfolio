@@ -1,6 +1,6 @@
-# Portfolio — Min Kyungho (민경호)
+# Portfolio
 
-A minimal, information-dense academic homepage / CV for Min Kyungho — a
+A minimal, information-dense academic homepage / CV 
 research-oriented AI engineer working on RF signal reconstruction, embodied AI,
 and LLM agent systems.
 
