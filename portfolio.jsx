@@ -67,6 +67,30 @@ const PROJECTS = [
 
 const ACTIVITIES = [
   {
+    when: "2025 – present",
+    what: (
+      <>
+        Undergraduate Researcher,{" "}
+        <a href={MIST_LAB} target="_blank" rel="noreferrer">
+          MIST Lab
+        </a>
+        , Sogang University — PCI RF reconstruction research
+      </>
+    ),
+  },
+  {
+    when: "2025.09 – present",
+    what: "AI@Sogang (student society) — AI2-THOR embodied LLM agent study & simulation testing",
+  },
+  {
+    when: "2025.09 – 2026.07.01",
+    what: "Hateslop (student society) — LLM agents, tool use, ReAct / RAG / MCP",
+  },
+  {
+    when: "2025.10 – present",
+    what: "Sogang Intelligence — weekly paper-reading group (graduate × undergraduate): robotics, world models, embodied AI, medical AI",
+  },
+  {
     when: "2025.12",
     what: (
       <>
@@ -85,30 +109,6 @@ const ACTIVITIES = [
         </a>
       </>
     ),
-  },
-  {
-    when: "2025 – present",
-    what: (
-      <>
-        Undergraduate Researcher,{" "}
-        <a href={MIST_LAB} target="_blank" rel="noreferrer">
-          MIST Lab
-        </a>
-        , Sogang University — PCI RF reconstruction research
-      </>
-    ),
-  },
-  {
-    when: "2025.10 – present",
-    what: "Sogang Intelligence — weekly paper-reading group (graduate × undergraduate): robotics, world models, embodied AI, medical AI",
-  },
-  {
-    when: "2025.09 – present",
-    what: "AI@Sogang (student society) — AI2-THOR embodied LLM agent study & simulation testing",
-  },
-  {
-    when: "2025.09 – 2026.07.01",
-    what: "Hateslop (student society) — LLM agents, tool use, ReAct / RAG / MCP",
   },
 ];
 
