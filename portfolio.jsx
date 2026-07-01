@@ -1,6 +1,7 @@
 import React from "react";
 
 const MIST_LAB = "https://mist.sogang.ac.kr/";
+const OENL_LAB = "https://www.oenl.snu.ac.kr/";
 
 const PROFILE = {
   name: "Min Kyungho",
@@ -10,7 +11,7 @@ const PROFILE = {
   bio: "RF 신호 복원, embodied LLM agents, LLM 기반 연구 자동화를 연구 아이디어에서 실제로 동작하는 실험 파이프라인과 소프트웨어 시스템으로 구현합니다.",
   interests:
     "Medical AI · RF Signal Reconstruction · Embodied AI · Robotics & LLM Agents · Research Automation",
-  email: "hub2vu@sogang.ac.kr",
+  email: "hub2vu@gmail.com",
   github: "github.com/hub2vu",
   githubUrl: "https://github.com/hub2vu",
   location: "Seoul, South Korea",
@@ -75,6 +76,17 @@ const ACTIVITIES = [
     ),
   },
   {
+    when: "2026.07.01 – present",
+    what: (
+      <>
+        Undergraduate Researcher,{" "}
+        <a href={OENL_LAB} target="_blank" rel="noreferrer">
+          Organic Electronics and Nanophotonics Laboratory
+        </a>
+      </>
+    ),
+  },
+  {
     when: "2025 – present",
     what: (
       <>
@@ -95,7 +107,7 @@ const ACTIVITIES = [
     what: "AI@Sogang (student society) — AI2-THOR embodied LLM agent study & simulation testing",
   },
   {
-    when: "2025.09 – present",
+    when: "2025.09 – 2026.07.01",
     what: "Hateslop (student society) — LLM agents, tool use, ReAct / RAG / MCP",
   },
 ];
