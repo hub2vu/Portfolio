@@ -107,6 +107,7 @@ const ACTIVITIES = [
         <a href={OENL_LAB} target="_blank" rel="noreferrer">
           Organic Electronics and Nanophotonics Laboratory
         </a>
+        , Seoul National University
       </>
     ),
   },
